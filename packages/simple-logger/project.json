@@ -1,0 +1,30 @@
+{
+  "name": "@packages/simple-logger",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/simple-logger/src",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "packages/simple-logger/dist",
+        "main": "packages/simple-logger/src/index.ts",
+        "tsConfig": "packages/simple-logger/tsconfig.json",
+        "assets": []
+      }
+    },
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cd packages/simple-logger && yarn dev"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cd packages/simple-logger && yarn lint"
+      }
+    }
+  }
+}

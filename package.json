@@ -1,0 +1,36 @@
+{
+  "name": "token-renewal-example",
+  "version": "1.0.0",
+  "private": true,
+  "main": "dist/index.js",
+  "repository": "git@github.com:maxxborer/token-renewal-example.git",
+  "author": "Maxim Bureev <maxxborer@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "deps": "yarn install",
+    "build:packages": "yarn nx run-many --target=build --projects=@packages/axios-token-renewal,@packages/apollo-token-renewal,@packages/simple-logger",
+    "build:apps": "yarn nx run-many --target=build --projects=server,client",
+    "build": "yarn build:packages && yarn build:apps",
+    "dev:packages": "yarn nx run-many --target=dev --projects=@packages/axios-token-renewal,@packages/apollo-token-renewal,@packages/simple-logger --parallel",
+    "dev:apps": "yarn nx run-many --target=dev --projects=server,client --parallel",
+    "dev": "yarn build:packages && (yarn dev:packages & yarn dev:apps)",
+    "serve": "yarn nx run-many --target=serve --projects=server,client --parallel || yarn nx run-many --target=dev --projects=server,client --parallel",
+    "start": "yarn deps && yarn build:packages && yarn serve",
+    "graph": "yarn nx graph",
+    "lint": "yarn nx run-many --target=lint --all",
+    "clean": "yarn workspaces foreach run clean || true && rm -rf node_modules/.cache",
+    "workspace:install": "yarn workspaces foreach install"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@nx/js": "21.3.2",
+    "nx": "21.3.2"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ]
+}

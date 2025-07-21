@@ -1,0 +1,30 @@
+{
+  "name": "@packages/axios-token-renewal",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/axios-token-renewal/src",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "packages/axios-token-renewal/dist",
+        "main": "packages/axios-token-renewal/src/index.ts",
+        "tsConfig": "packages/axios-token-renewal/tsconfig.json",
+        "assets": []
+      }
+    },
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cd packages/axios-token-renewal && yarn dev"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cd packages/axios-token-renewal && yarn lint"
+      }
+    }
+  }
+}

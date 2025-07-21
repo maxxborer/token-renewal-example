@@ -1,0 +1,30 @@
+{
+  "name": "@packages/apollo-token-renewal",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/apollo-token-renewal/src",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "packages/apollo-token-renewal/dist",
+        "main": "packages/apollo-token-renewal/src/index.ts",
+        "tsConfig": "packages/apollo-token-renewal/tsconfig.json",
+        "assets": []
+      }
+    },
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cd packages/apollo-token-renewal && yarn dev"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cd packages/apollo-token-renewal && yarn lint"
+      }
+    }
+  }
+}

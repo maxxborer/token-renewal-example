@@ -1,0 +1,34 @@
+{
+  "name": "@packages/apollo-token-renewal",
+  "version": "1.0.0",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/src/index.js",
+      "types": "./dist/src/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@packages/simple-logger": "*"
+  },
+  "peerDependencies": {
+    "@apollo/client": "^3.0.0"
+  },
+  "devDependencies": {
+    "@apollo/client": "3.13.8",
+    "@types/node": "^22.12.0",
+    "graphql": "16.11.0",
+    "typescript": "5.8.3"
+  }
+}
